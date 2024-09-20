@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>progreen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #6e909b;
+        }
+        .top-menu {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .top-menu a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: background-color 0.3s;
+        }
+        .top-menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .top-menu a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .top-menu span {
+            float: right;
+            color: white;
+            padding: 14px 16px;
+        }
+        .container {
+            margin-top: 60px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        body {
+            margin-top : 50px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .container { width: 80%; margin: 0 auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        table, th, td { border: 1px solid #ddd; }
+        th, td { padding: 10px; text-align: center; }
+        .popup { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid #ccc; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); z-index: 10; }
+        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 5; }
+        .popup-header { display: flex; justify-content: space-between; align-items: center; }
+        .popup-header h3 { margin: 0; }
+        .popup-close { cursor: pointer; font-size: 20px; }
+        .btn { padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; margin-top: 20px; }
+    </style>
+</head>
+<body>
+<div th:replace="~{progreen/layout :: content}">
+</div>
+<h1>게시판</h1>
+<div class="container">
+    <h2>게시판</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>차수</th>
+            <th>제목</th>
+            <th>업로드 일시</th>
+            <th>수정</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr onclick="showPopup('글 제목 1', '글 내용 1입니다.')">
+            <td>1</td>
+            <td>글 제목입니다.</td>
+            <td>yyyy-mm-dd-hh-mm</td>
+            <td><button onclick="editNotice(1)">수정</button></td>
+        </tr>
+        <!-- 추가 항목들 -->
+        </tbody>
+    </table>
+    <button class="btn" onclick="showWritePopup()">게시글 등록</button>
+</div>
+
+<!-- 상세 내용 팝업 -->
+<div class="popup" id="detailPopup">
+    <div class="popup-header">
+        <h3 id="popupTitle">글 제목</h3>
+        <span class="popup-close" onclick="closePopup()">&times;</span>
+    </div>
+    <p id="popupContent">글 내용</p>
+    <button class="btn" onclick="closePopup()">닫기</button>
+</div>
+
+<!-- 글쓰기 팝업 -->
+<div class="popup" id="writePopup">
+    <div class="popup-header">
+        <h3>새로운 글 작성</h3>
+        <span class="popup-close" onclick="closePopup()">&times;</span>
+    </div>
+    <form>
+        <label for="title">제목</label><br>
+        <input type="text" id="title" placeholder="제목을 입력하세요."><br><br>
+        <label for="content">본문</label><br>
+        <textarea id="content" placeholder="본문을 입력하세요."></textarea><br><br>
+        <label for="fileUpload">첨부파일</label><br>
+        <input type="file" id="fileUpload"><br><br>
+        <button type="button" class="btn" onclick="registerNotice()">등록하기</button>
+        <button type="button" class="btn" onclick="closePopup()">취소하기</button>
+    </form>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<script>
+    function showPopup(title, content) {
+        document.getElementById('popupTitle').innerText = title;
+        document.getElementById('popupContent').innerText = content;
+        document.getElementById('detailPopup').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    function showWritePopup() {
+        document.getElementById('writePopup').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    function closePopup() {
+        document.getElementById('detailPopup').style.display = 'none';
+        document.getElementById('writePopup').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+
+    function editNotice(id) {
+        // 수정 로직 추가 가능
+        alert('수정 기능 구현 중입니다.');
+    }
+
+    function registerNotice() {
+        // 등록 로직 추가 가능
+        alert('새로운 글이 등록되었습니다.');
+        closePopup();
+    }
+</script>
+</body>
+</html>

@@ -91,8 +91,8 @@
 <body>
 <div th:fragment="content">
     <nav class="top-menu">
-        <a th:href="@{/admin/dashboard}" th:classappend="${currentPage == 'dashboard' ? 'active' : ''}">지도</a>
-        <a th:href="@{/admin/statistics}" th:classappend="${currentPage == 'statistics' ? 'active' : ''}">게시판</a>
+        <a th:href="@{/progreen/index}" th:classappend="${currentPage == 'index' ? 'active' : ''}">지도</a>
+        <a th:href="@{/progreen/post}" th:classappend="${currentPage == 'post' ? 'active' : ''}">게시판</a>
 <!--        <a th:href="@{/admin/logout}" style="float:right;">Logout</a>-->
 <!--        <span th:text="${session.loggedInUser.username}">Welcome</span>-->
     </nav>

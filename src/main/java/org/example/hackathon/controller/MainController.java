@@ -7,16 +7,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/progreen")
 public class MainController {
+
     public MainController() {
 
     }
 
     @GetMapping("/index")
-    public String register() {
+    public String index() {
         return "progreen/index";
     }
 
-
+    @GetMapping("/post")
+    public String post() {
+        return "progreen/post";
+    }
 
 
 
