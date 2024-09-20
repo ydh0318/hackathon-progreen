@@ -113,7 +113,9 @@
         <li><span style="display: inline-block; width: 15px; height: 15px; background-color: gray; margin-right: 10px;"></span>계단</li>
     </ul>
 </div>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=15e9e3c2a657f0925bcec69c3d666b31"></script><script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=15e9e3c2a657f0925bcec69c3d666b31"></script>
+
+<script>
     var container = document.getElementById('map');
     var options = {
         center: new kakao.maps.LatLng(35.8879891330031, 128.61136245929313),
@@ -121,6 +123,25 @@
     };
 
     var map = new kakao.maps.Map(container, options);
+
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath1 = [
+        new kakao.maps.LatLng(35.88785577379442, 128.61211158265223),
+        new kakao.maps.LatLng(35.88792629359051, 128.6102138370552)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline1 = new kakao.maps.Polyline({
+        path: linePath1, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#ff0000', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline1.setMap(map);
+
 </script>
 </body>
 </html>
