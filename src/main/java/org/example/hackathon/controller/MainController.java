@@ -14,6 +14,7 @@ public class MainController {
 
     @GetMapping("/index")
     public String index() {
+
         return "progreen/index";
     }
 
@@ -21,7 +22,6 @@ public class MainController {
     public String post() {
         return "progreen/post";
     }
-
 
 
 }

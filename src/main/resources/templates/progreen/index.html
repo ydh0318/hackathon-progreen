@@ -89,11 +89,29 @@
         body {
             margin-top : 50px;
         }
+
     </style>
 </head>
 <body>
 <div th:replace="~{progreen/layout :: content}">
 </div>
-<h1>지도</h1>
+<!--<h1>지도</h1>-->
+<div id="map" style="width:1000px;height:800px;
+            margin-top: 60px;
+            padding: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            width:1000px;
+            height:800px;"></div>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=15e9e3c2a657f0925bcec69c3d666b31"></script><script>
+    var container = document.getElementById('map');
+    var options = {
+        center: new kakao.maps.LatLng(35.8879891330031, 128.61136245929313),
+        level: 2
+    };
+
+    var map = new kakao.maps.Map(container, options);
+</script>
 </body>
 </html>
