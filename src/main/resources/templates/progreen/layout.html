@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>progreen</title>
+    <title>경북대 편한 지도</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #6e909b;
+            background-color: #f4f4f4;
         }
         .top-menu {
             background-color: #333;
@@ -86,14 +86,16 @@
         .button:hover {
             background-color: #45a049;
         }
-        body {
-            margin-top : 50px;
-        }
     </style>
 </head>
 <body>
-<div th:replace="~{progreen/layout :: content}">
+<div th:fragment="content">
+    <nav class="top-menu">
+        <a th:href="@{/admin/dashboard}" th:classappend="${currentPage == 'dashboard' ? 'active' : ''}">지도</a>
+        <a th:href="@{/admin/statistics}" th:classappend="${currentPage == 'statistics' ? 'active' : ''}">게시판</a>
+<!--        <a th:href="@{/admin/logout}" style="float:right;">Logout</a>-->
+<!--        <span th:text="${session.loggedInUser.username}">Welcome</span>-->
+    </nav>
 </div>
-<h1>지도</h1>
 </body>
 </html>
