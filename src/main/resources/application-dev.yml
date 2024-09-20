@@ -1,0 +1,19 @@
+spring:
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+
+#mybatis:
+#  config-location: classpath:mybatis/config/mapper-config.xml
+#  mapper-locations: classpath:mybatis/mapper/*.xml
+#springdoc:
+#  swagger-ui:
+#    path: /api-docs
+#  api-docs:
+#    path: /api-docs
+
+logging:
+  level:
+    org.springframework.security: DEBUG
