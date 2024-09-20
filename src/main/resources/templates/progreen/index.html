@@ -124,23 +124,521 @@
 
     var map = new kakao.maps.Map(container, options);
 
+
+    //IT1호관 사이 계단 path1
     // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
     var linePath1 = [
-        new kakao.maps.LatLng(35.88785577379442, 128.61211158265223),
-        new kakao.maps.LatLng(35.88792629359051, 128.6102138370552)
+        new kakao.maps.LatLng(35.887623310818256, 128.61214285974117),
+        new kakao.maps.LatLng(35.887611782334325, 128.6126658660194)
     ];
 
     // 지도에 표시할 선을 생성합니다
     var polyline1 = new kakao.maps.Polyline({
         path: linePath1, // 선을 구성하는 좌표배열 입니다
         strokeWeight: 5, // 선의 두께 입니다
-        strokeColor: '#ff0000', // 선의 색깔입니다
+        strokeColor: '#716e6a', // 선의 색깔입니다
         strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
         strokeStyle: 'solid' // 선의 스타일입니다
     });
 
     // 지도에 선을 표시합니다
     polyline1.setMap(map);
+
+    //IT2호관 앞 계단 path2
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath2 = [
+        new kakao.maps.LatLng(35.88717272066559, 128.61164094018798),
+        new kakao.maps.LatLng(35.88708495786882, 128.6116336245414)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline2 = new kakao.maps.Polyline({
+        path: linePath2, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#716e6a', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline2.setMap(map);
+
+    //IT2호관 좌측 계단 path3
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath3 = [
+        new kakao.maps.LatLng(35.88749567109584, 128.61124605872655),
+        new kakao.maps.LatLng(35.887500522786155, 128.6110523646734)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline3 = new kakao.maps.Polyline({
+        path: linePath3, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#716e6a', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline3.setMap(map);
+
+    //융복합관 뒤 계단 path4
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath4 = [
+        new kakao.maps.LatLng(35.88832564416641, 128.61117705361883),
+        new kakao.maps.LatLng(35.888541794701034, 128.6115219587721)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline4 = new kakao.maps.Polyline({
+        path: linePath4, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#716e6a', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline4.setMap(map);
+
+    //공대12호관 뒤 계단 path5
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath5 = [
+        new kakao.maps.LatLng(35.88855424673688, 128.6104258854891),
+        new kakao.maps.LatLng(35.88868143620705, 128.6105170536498)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline5 = new kakao.maps.Polyline({
+        path: linePath5, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#716e6a', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline5.setMap(map);
+
+    //융복합관 앞 평지 path6
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath6 = [
+        new kakao.maps.LatLng(35.887844289686576, 128.61212796066465),
+        new kakao.maps.LatLng(35.887940651906064, 128.609142726716)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline6 = new kakao.maps.Polyline({
+        path: linePath6, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#126006', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline6.setMap(map);
+
+    //IT2호관 우측 평지 path7
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath7 = [
+        new kakao.maps.LatLng(35.88783284273487, 128.61214157095222),
+        new kakao.maps.LatLng(35.88735522085267, 128.61214296132496)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline7 = new kakao.maps.Polyline({
+        path: linePath7, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#126006', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline7.setMap(map);
+
+    //미래창직관 십자가 북쪽 path8
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath8 = [
+        new kakao.maps.LatLng(35.88789904409407, 128.61022989610302),
+        new kakao.maps.LatLng(35.887531929888475, 128.6102224619075)   //십자가 중간좌표
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline8 = new kakao.maps.Polyline({
+        path: linePath8, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#126006', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline8.setMap(map);
+
+    //미래창직관 십자가 동쪽 path9
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath9 = [
+        new kakao.maps.LatLng(35.887500522786155, 128.6110523646734),
+        new kakao.maps.LatLng(35.887531929888475, 128.6102224619075)   //십자가 중간좌표
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline9 = new kakao.maps.Polyline({
+        path: linePath9, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#126006', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline9.setMap(map);
+
+    //미래창직관 십자가 서쪽 path10
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath10 = [
+        new kakao.maps.LatLng(35.88753787262006, 128.60910689114922),
+        new kakao.maps.LatLng(35.887531929888475, 128.6102224619075)   //십자가 중간좌표
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline10 = new kakao.maps.Polyline({
+        path: linePath10, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#126006', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline10.setMap(map);
+
+    //미래창직관 십자가 남쪽 path11
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath11 = [
+        new kakao.maps.LatLng(35.88707476338709, 128.61021043586118),
+        new kakao.maps.LatLng(35.887531929888475, 128.6102224619075)   //십자가 중간좌표
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline11 = new kakao.maps.Polyline({
+        path: linePath11, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#126006', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline11.setMap(map);
+
+    //IT2호관 앞 평지 path12
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath12 = [
+        new kakao.maps.LatLng(35.88703100194315, 128.611793100838),
+        new kakao.maps.LatLng(35.8870989462529, 128.60907862992315)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline12 = new kakao.maps.Polyline({
+        path: linePath12, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#126006', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline12.setMap(map);
+
+    //공식당 앞 계단 path13
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath13 = [
+        new kakao.maps.LatLng(35.88828369093485, 128.609769810657),
+        new kakao.maps.LatLng(35.88825860826159, 128.60996032861888)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline13 = new kakao.maps.Polyline({
+        path: linePath13, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#716e6a', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline13.setMap(map);
+
+    //IT2호관 옆 오르막길 path14
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath14 = [
+        new kakao.maps.LatLng(35.88733712867762, 128.61214813143295),
+        new kakao.maps.LatLng(35.88680156595205, 128.61227015843852)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline14 = new kakao.maps.Polyline({
+        path: linePath14, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#e4de46', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline14.setMap(map);
+
+    //융복합관 좌측 계단 path15
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath15 = [
+        new kakao.maps.LatLng(35.88827030386329, 128.61110395155376),
+        new kakao.maps.LatLng(35.888246022843454, 128.61140245630867)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline15 = new kakao.maps.Polyline({
+        path: linePath15, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#716e6a', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline15.setMap(map);
+
+    //IT4호관 뒤 계단 path16
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath16 = [
+        new kakao.maps.LatLng(35.88852006738981, 128.61079063498573),
+        new kakao.maps.LatLng(35.888454901129144, 128.61077824086254)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline16 = new kakao.maps.Polyline({
+        path: linePath16, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#716e6a', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline16.setMap(map);
+
+    //공식당 좌측 오르막길 path17
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath17 = [
+        new kakao.maps.LatLng(35.888733391260594, 128.60933041699352),
+        new kakao.maps.LatLng(35.88794061481678, 128.60914549444394)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline17 = new kakao.maps.Polyline({
+        path: linePath17, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#e80404', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline17.setMap(map);
+
+    //공식당 오르막길 잠깐 평지 path18
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath18 = [
+        new kakao.maps.LatLng(35.88794061481678, 128.60914549444394),
+        new kakao.maps.LatLng(35.88778787077689, 128.6091119501796)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline18 = new kakao.maps.Polyline({
+        path: linePath18, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#126006', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline18.setMap(map);
+
+    //공대 좌측 약간 오르막 path19
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath19 = [
+        new kakao.maps.LatLng(35.88778787077689, 128.6091119501796),
+        new kakao.maps.LatLng(35.88709890916583, 128.60908139762194)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline19 = new kakao.maps.Polyline({
+        path: linePath19, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#e4de46', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline19.setMap(map);
+
+    //공대-테니스장 계단 path20
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath20 = [
+        new kakao.maps.LatLng(35.88875350768516, 128.61051851344166),
+        new kakao.maps.LatLng(35.88885242035615, 128.61053435945297)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline20 = new kakao.maps.Polyline({
+        path: linePath20, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#716e6a', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline20.setMap(map);
+
+    //수의대문 path21
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath21 = [
+        new kakao.maps.LatLng(35.88615522685134, 128.6129242418417),
+        new kakao.maps.LatLng(35.886246304377494, 128.61302021539134)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline21 = new kakao.maps.Polyline({
+        path: linePath21, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#716e6a', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline21.setMap(map);
+
+    //수의대문 앞 평지 path22
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath22 = [
+        new kakao.maps.LatLng(35.886282525971794, 128.61300710803056),
+        new kakao.maps.LatLng(35.88648782907508, 128.6128174826376)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline22 = new kakao.maps.Polyline({
+        path: linePath22, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#126006', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline22.setMap(map);
+
+    //창업보육센터 앞 약간 오르막 path23
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath23 = [
+        new kakao.maps.LatLng(35.88648782907508, 128.6128174826376),
+        new kakao.maps.LatLng(35.88679026762938, 128.61227269779772)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline23 = new kakao.maps.Polyline({
+        path: linePath23, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#e4de46', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline23.setMap(map);
+
+    //IT2호관 앞 평지2 path24
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath24 = [
+        new kakao.maps.LatLng(35.88679026762938, 128.61227269779772),
+        new kakao.maps.LatLng(35.88703310557746, 128.61180421726084)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline24 = new kakao.maps.Polyline({
+        path: linePath24, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#126006', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline24.setMap(map);
+
+    //작은 쪽문 path25
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath25 = [
+        new kakao.maps.LatLng(35.8862574880121, 128.6108444651593),
+        new kakao.maps.LatLng(35.88632494365778, 128.61085413687866)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline25 = new kakao.maps.Polyline({
+        path: linePath25, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#716e6a', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline25.setMap(map);
+
+    //쪽문 가는 길 평지 path26
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath26 = [
+        new kakao.maps.LatLng(35.88710795519648, 128.60907881222334),
+        new kakao.maps.LatLng(35.8857207260586, 128.60903966834525)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline26 = new kakao.maps.Polyline({
+        path: linePath26, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#126006', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline26.setMap(map);
+
+    //테니스장 앞 평지 path27
+    // 선을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 선을 표시합니다
+    var linePath27 = [
+        new kakao.maps.LatLng(35.88857604740587, 128.6116555409636),
+        new kakao.maps.LatLng(35.88887269597603, 128.60935815310802)
+    ];
+
+    // 지도에 표시할 선을 생성합니다
+    var polyline27 = new kakao.maps.Polyline({
+        path: linePath27, // 선을 구성하는 좌표배열 입니다
+        strokeWeight: 5, // 선의 두께 입니다
+        strokeColor: '#126006', // 선의 색깔입니다
+        strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+        strokeStyle: 'solid' // 선의 스타일입니다
+    });
+
+    // 지도에 선을 표시합니다
+    polyline27.setMap(map);
+
+    //
 
 </script>
 </body>
