@@ -96,14 +96,23 @@
 <div th:replace="~{progreen/layout :: content}">
 </div>
 <!--<h1>지도</h1>-->
-<div id="map" style="width:1000px;height:800px;
+<div id="map" style="width:800px;height:600px;
             margin-top: 60px;
             padding: 20px;
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
-            width:1000px;
-            height:800px;"></div>
+           "></div>
+<!-- 지도 밑에 범례 추가 -->
+<div id="legend" style="max-width: 800px; margin: 0 auto; padding: 10px;">
+    <h3>범례</h3>
+    <ul style="list-style: none; padding: 0; display: flex; justify-content: space-between; align-items: center;">
+        <li><span style="display: inline-block; width: 15px; height: 15px; background-color: red; border-radius: 50%; margin-right: 10px;"></span>어려움</li>
+        <li><span style="display: inline-block; width: 15px; height: 15px; background-color: yellow; border-radius: 50%; margin-right: 10px;"></span>보통</li>
+        <li><span style="display: inline-block; width: 15px; height: 15px; background-color: green; border-radius: 50%; margin-right: 10px;"></span>원활</li>
+        <li><span style="display: inline-block; width: 15px; height: 15px; background-color: gray; margin-right: 10px;"></span>계단</li>
+    </ul>
+</div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=15e9e3c2a657f0925bcec69c3d666b31"></script><script>
     var container = document.getElementById('map');
     var options = {
