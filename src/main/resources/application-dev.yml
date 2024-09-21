@@ -1,13 +1,18 @@
 spring:
-
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/pain_record?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/hackathon?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: 1234
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
     cache: false
 
-#mybatis:
-#  config-location: classpath:mybatis/config/mapper-config.xml
-#  mapper-locations: classpath:mybatis/mapper/*.xml
+mybatis:
+  config-location: classpath:mybatis/config/mapper-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
 
 logging:
   level:
