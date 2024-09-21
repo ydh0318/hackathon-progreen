@@ -16,7 +16,10 @@ public class PostService {
     public PostService(PostMapper postMapper) {
         this.postMapper = postMapper;
     }
-    public void createPost(Post post) {
+    public void createPost(String title, String content) {
+        Post post = new Post();
+        post.setPostName(title);
+        post.setDetail(content);
         postMapper.insertPost(post);
     }
 

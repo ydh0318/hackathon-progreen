@@ -5,9 +5,7 @@ import org.example.hackathon.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +27,15 @@ public class PostController {
         return "progreen/post";
     }
 
-
-
+    // 게시글 등록 처리
+    @PostMapping("/register")
+    public String registerPost(@RequestParam String title,
+                               @RequestParam String content) {
+        postService.createPost(title, content);  // 새 게시글을 저장
+        return "redirect:/progreen/post";    // 등록 후 게시판 목록으로 리다이렉트
+    }
 }
+
+
+
+
