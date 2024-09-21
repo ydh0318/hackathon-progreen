@@ -107,7 +107,6 @@
 <body>
 <div th:replace="~{progreen/layout :: content}">
 </div>
-<h1>게시판</h1>
 <div class="container">
     <h2>게시판</h2>
     <table>
@@ -116,15 +115,18 @@
             <th>차수</th>
             <th>제목</th>
             <th>업로드 일시</th>
-            <th>수정</th>
         </tr>
         </thead>
         <tbody>
-        <tr onclick="showPopup('글 제목 1', '글 내용 1입니다.')">
-            <td>1</td>
-            <td>글 제목입니다.</td>
-            <td>yyyy-mm-dd-hh-mm</td>
-            <td><button onclick="editNotice(1)">수정</button></td>
+        <!-- DB에서 가져온 게시글 목록을 반복해서 출력 -->
+        <tr th:each="post : ${posts}"
+            data-title="${post.postName}"
+            data-detail="${post.detail}"
+            onclick="showPopup(this)">
+            <!--        <tr th:each="post : ${posts}">-->
+            <td th:text="${post.postId}"></td>
+            <td th:text="${post.postName}"></td>
+            <td th:text="${#dates.format(post.createDate, 'yyyy-MM-dd HH:mm')}"></td>
         </tr>
         <!-- 추가 항목들 -->
         </tbody>
@@ -148,14 +150,14 @@
         <h3>새로운 글 작성</h3>
         <span class="popup-close" onclick="closePopup()">&times;</span>
     </div>
-    <form>
+    <form th:action="@{/progreen/post/upload}" method="post">
         <label for="title">제목</label><br>
-        <input type="text" id="title" placeholder="제목을 입력하세요."><br><br>
+        <input type="text" id="title" name="title" placeholder="제목을 입력하세요." required><br><br>
         <label for="content">본문</label><br>
-        <textarea id="content" placeholder="본문을 입력하세요."></textarea><br><br>
+        <textarea id="content" name="content" placeholder="본문을 입력하세요." required></textarea><br><br>
         <label for="fileUpload">첨부파일</label><br>
         <input type="file" id="fileUpload"><br><br>
-        <button type="button" class="btn" onclick="registerNotice()">등록하기</button>
+        <button type="submit" class="btn">등록하기</button>
         <button type="button" class="btn" onclick="closePopup()">취소하기</button>
     </form>
 </div>
@@ -163,11 +165,17 @@
 <div class="overlay" id="overlay"></div>
 
 <script>
-    function showPopup(title, content) {
-        document.getElementById('popupTitle').innerText = title;
-        document.getElementById('popupContent').innerText = content;
-        document.getElementById('detailPopup').style.display = 'block';
-        document.getElementById('overlay').style.display = 'block';
+    function showPopup(element) {
+        // HTML 엘리먼트의 data-* 속성에서 제목과 내용을 가져옴
+        var title = element.getAttribute('data-title');
+        var content = element.getAttribute('data-detail');
+
+        // 팝업에 제목과 내용을 표시
+        document.getElementById("popupTitle").innerText = title;
+        document.getElementById("popupContent").innerText = content;
+
+        // 팝업을 보여줌
+        document.getElementById("detailPopup").style.display = "block";
     }
 
     function showWritePopup() {
