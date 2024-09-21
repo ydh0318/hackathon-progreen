@@ -107,7 +107,6 @@
 <body>
 <div th:replace="~{progreen/layout :: content}">
 </div>
-<h1>게시판</h1>
 <div class="container">
     <h2>게시판</h2>
     <table>
@@ -116,15 +115,20 @@
             <th>차수</th>
             <th>제목</th>
             <th>업로드 일시</th>
-            <th>수정</th>
         </tr>
         </thead>
         <tbody>
-        <tr onclick="showPopup('글 제목 1', '글 내용 1입니다.')">
-            <td>1</td>
-            <td>글 제목입니다.</td>
-            <td>yyyy-mm-dd-hh-mm</td>
-            <td><button onclick="editNotice(1)">수정</button></td>
+        <tr th:each="post : ${posts}">
+            <td th:text="${post.postId}"></td>
+            <!-- data-name과 data-content 속성에 postName과 postContent를 저장 -->
+            <td>
+                <a href="javascript:void(0)"
+                   th:attr="data-name=${post.postName}, data-content=${post.postContent}"
+                   onclick="showPopup(this)">
+                    <span th:text="${post.postName}"></span>
+                </a>
+            </td>
+            <td th:text="${post.postDate}"></td>
         </tr>
         <!-- 추가 항목들 -->
         </tbody>
@@ -132,42 +136,61 @@
     <button class="btn" onclick="showWritePopup()">게시글 등록</button>
 </div>
 
-<!-- 상세 내용 팝업 -->
-<div class="popup" id="detailPopup">
-    <div class="popup-header">
-        <h3 id="popupTitle">글 제목</h3>
-        <span class="popup-close" onclick="closePopup()">&times;</span>
+<!-- Popup modal -->
+<div id="popupModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); width:400px; height:300px; background-color:white; padding:20px; border:1px solid black; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); flex-direction: column; justify-content: space-between; align-items: center;">
+    <!-- 제목과 내용 옆에 표시 -->
+    <div style="width: 100%; flex-grow: 1;">
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <strong style="min-width: 70px;">제목:</strong>
+            <h2 id="popupTitle" style="margin: 0;"></h2>
+        </div>
+        <div style="display: flex; align-items: flex-start;">
+            <strong style="min-width: 70px;">내용:</strong>
+            <p id="popupContent" style="margin: 0; white-space: pre-wrap;"></p>
+        </div>
     </div>
-    <p id="popupContent">글 내용</p>
-    <button class="btn" onclick="closePopup()">닫기</button>
+    <!-- Close 버튼을 하단 중앙에 배치 -->
+    <div style="width: 100%; display: flex; justify-content: center;">
+        <button onclick="closePopup()" style="margin-top: 20px; padding: 10px 20px; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer;">Close</button>
+    </div>
 </div>
+
 
 <!-- 글쓰기 팝업 -->
 <div class="popup" id="writePopup">
     <div class="popup-header">
         <h3>새로운 글 작성</h3>
-        <span class="popup-close" onclick="closePopup()">&times;</span>
+        <span class="popup-close" onclick="closeRegiPopup()">&times;</span>
     </div>
-    <form>
+    <form th:action="@{/progreen/post/upload}" method="post">
         <label for="title">제목</label><br>
-        <input type="text" id="title" placeholder="제목을 입력하세요."><br><br>
+        <input type="text" id="title" name="title" placeholder="제목을 입력하세요." required><br><br>
         <label for="content">본문</label><br>
-        <textarea id="content" placeholder="본문을 입력하세요."></textarea><br><br>
-        <label for="fileUpload">첨부파일</label><br>
-        <input type="file" id="fileUpload"><br><br>
-        <button type="button" class="btn" onclick="registerNotice()">등록하기</button>
-        <button type="button" class="btn" onclick="closePopup()">취소하기</button>
+        <textarea id="content" name="content" placeholder="본문을 입력하세요." required></textarea><br><br>
+        <button type="submit" class="btn">등록하기</button>
+        <button type="button" class="btn" onclick="closeRegiPopup()">취소하기</button>
     </form>
 </div>
 
 <div class="overlay" id="overlay"></div>
 
 <script>
-    function showPopup(title, content) {
-        document.getElementById('popupTitle').innerText = title;
-        document.getElementById('popupContent').innerText = content;
-        document.getElementById('detailPopup').style.display = 'block';
-        document.getElementById('overlay').style.display = 'block';
+    function showPopup(element) {
+        // element의 data-* 속성에서 postName과 postContent 값을 가져옴
+        const postName = element.getAttribute("data-name");
+        const postContent = element.getAttribute("data-content");
+
+        // 팝업에 글 제목과 내용을 설정
+        document.getElementById("popupTitle").innerText = postName;
+        document.getElementById("popupContent").innerText = postContent;
+
+        // 팝업을 표시
+        document.getElementById("popupModal").style.display = "block";
+    }
+
+    function closePopup() {
+        // 팝업을 닫기
+        document.getElementById("popupModal").style.display = "none";
     }
 
     function showWritePopup() {
@@ -175,21 +198,9 @@
         document.getElementById('overlay').style.display = 'block';
     }
 
-    function closePopup() {
-        document.getElementById('detailPopup').style.display = 'none';
+    function closeRegiPopup() {
         document.getElementById('writePopup').style.display = 'none';
         document.getElementById('overlay').style.display = 'none';
-    }
-
-    function editNotice(id) {
-        // 수정 로직 추가 가능
-        alert('수정 기능 구현 중입니다.');
-    }
-
-    function registerNotice() {
-        // 등록 로직 추가 가능
-        alert('새로운 글이 등록되었습니다.');
-        closePopup();
     }
 </script>
 </body>
