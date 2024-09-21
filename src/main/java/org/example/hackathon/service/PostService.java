@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Service
 public class PostService {
@@ -27,5 +28,10 @@ public class PostService {
 
         PostEntity post= PostDto.toEntity(new PostDto(postName,datetime,postContent));
         postRepository.save(post);
+    }
+
+    @Transactional
+    public List<PostEntity> getAllPosts(){
+        return postRepository.findAll();
     }
 }

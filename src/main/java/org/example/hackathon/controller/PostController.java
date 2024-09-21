@@ -1,13 +1,15 @@
 package org.example.hackathon.controller;
 
+import org.example.hackathon.domain.PostEntity;
 import org.example.hackathon.service.PostService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
 
-@RestController
-@RequestMapping("/post")
+import java.util.List;
+
+@Controller
+@RequestMapping("progreen/post")
 public class PostController {
     private final PostService postService;
 
@@ -24,4 +26,13 @@ public class PostController {
     {
         postService.savePost(postName,postContent);
     }
+
+    @GetMapping("")
+    public String getPostInfo(Model model){
+        List<PostEntity> posts = postService.getAllPosts();
+        model.addAttribute("posts" , posts);
+
+        return "progreen/post";
+    }
+
 }

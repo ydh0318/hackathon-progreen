@@ -9,12 +9,17 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create-drop  # 테이블을 애플리케이션 시작 시 생성하고 종료 시 삭제
+      ddl-auto: update  # 테이블을 애플리케이션 시작 시 생성하고 종료 시 삭제
     show-sql: true           # 실행되는 SQL 쿼리를 로그에 출력
     properties:
       hibernate:
         format_sql: true     # 출력되는 SQL을 보기 좋게 정렬
         dialect: org.hibernate.dialect.MySQLDialect  # MySQL에 맞는 Hibernate 방언
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
 
   profiles:
     include: dev

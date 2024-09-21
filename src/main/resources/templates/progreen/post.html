@@ -126,7 +126,8 @@
             <!--        <tr th:each="post : ${posts}">-->
             <td th:text="${post.postId}"></td>
             <td th:text="${post.postName}"></td>
-            <td th:text="${#dates.format(post.createDate, 'yyyy-MM-dd HH:mm')}"></td>
+            <td th:text="${post.postDate}"></td>
+
         </tr>
         <!-- 추가 항목들 -->
         </tbody>

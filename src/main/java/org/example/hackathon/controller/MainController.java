@@ -18,10 +18,4 @@ public class MainController {
         return "progreen/index";
     }
 
-    @GetMapping("/post")
-    public String post() {
-        return "progreen/post";
-    }
-
-
 }
