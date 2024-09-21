@@ -121,7 +121,7 @@
         <!-- DB에서 가져온 게시글 목록을 반복해서 출력 -->
         <tr th:each="post : ${posts}"
             data-title="${post.postName}"
-            data-detail="${post.detail}"
+            data-detail="${post.postContent}"
             onclick="showPopup(this)">
             <!--        <tr th:each="post : ${posts}">-->
             <td th:text="${post.postId}"></td>
@@ -156,8 +156,8 @@
         <input type="text" id="title" name="title" placeholder="제목을 입력하세요." required><br><br>
         <label for="content">본문</label><br>
         <textarea id="content" name="content" placeholder="본문을 입력하세요." required></textarea><br><br>
-        <label for="fileUpload">첨부파일</label><br>
-        <input type="file" id="fileUpload"><br><br>
+<!--        <label for="fileUpload">첨부파일</label><br>-->
+<!--        <input type="file" id="fileUpload"><br><br>-->
         <button type="submit" class="btn">등록하기</button>
         <button type="button" class="btn" onclick="closePopup()">취소하기</button>
     </form>

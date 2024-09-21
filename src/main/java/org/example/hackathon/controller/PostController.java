@@ -19,12 +19,13 @@ public class PostController {
     }
 
     @PostMapping("/upload")
-    public void savePost(
-            @RequestPart String postName,
-            @RequestPart String postContent
+    public String savePost(
+            @RequestParam String title,
+            @RequestParam String content
     )
     {
-        postService.savePost(postName,postContent);
+        postService.savePost(title,content);
+        return "redirect:/progreen/post";
     }
 
     @GetMapping("")
